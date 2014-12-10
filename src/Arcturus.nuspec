@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>BootstrapHelpers</id>
+    <version>1.0.0</version>
+    <authors>chris</authors>
+    <owners>chris</owners>
+    <licenseUrl>https://github.com/thesheps/arcturus/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/thesheps/arcturus</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Provides a bunch of useful utilities and tools.</description>
+    <releaseNotes>First release.</releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>generic useful MVC</tags>
+    <dependencies>
+      <dependency id="SampleDependency" version="1.0" />
+    </dependencies>
+  </metadata>
+</package>
