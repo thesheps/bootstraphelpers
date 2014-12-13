@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>BootstrapHelpers</id>
+    <version>1.0.0</version>
+    <authors>Chris Shepherd</authors>
+    <owners>Chris Shepherd</owners>
+    <licenseUrl>https://github.com/thesheps/bootstraphelpers/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/thesheps/bootstraphelpers</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Provides a bunch of useful HtmlHelpers for Bootstrap.</description>
+    <releaseNotes>First release.</releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>mvc htmlhelpers bootstrap</tags>
+  </metadata>
+</package>
