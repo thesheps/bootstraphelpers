@@ -20,13 +20,24 @@ namespace BootstrapHelpers
             Expression<Func<TModel, TProperty>> expression,
             string title,
             string id,
+            string placeholder,
             bool usePlaceholder = true)
         {
             var label = GetLabel(helper, expression, title);
-            var input = GetTextInput(helper, expression, id, title, usePlaceholder);
+            var input = GetTextInput(helper, expression, id, title, placeholder, usePlaceholder);
             var validationMessages = GetValidationMessage(helper, expression);
 
             return BuildEditor(label, input, validationMessages);
+        }
+
+        public static MvcHtmlString BootstrapTextBox<TModel, TProperty>(
+            this HtmlHelper<TModel> helper,
+            Expression<Func<TModel, TProperty>> expression,
+            string title,
+            string id,
+            bool usePlaceholder = true)
+        {
+            return BootstrapTextBox(helper, expression, title, id, string.Empty, usePlaceholder);
         }
 
         public static MvcHtmlString BootstrapEmailAddress<TModel, TProperty>(
@@ -82,9 +93,10 @@ namespace BootstrapHelpers
             return validationMessages.ToString();
         }
 
-        private static string GetTextInput<TModel, TProperty>(HtmlHelper<TModel> helper, Expression<Func<TModel, TProperty>> expression, string id, string title, bool usePlaceholder)
+        private static string GetTextInput<TModel, TProperty>(HtmlHelper<TModel> helper, Expression<Func<TModel, TProperty>> expression, string id, string title, string placeholder, bool usePlaceholder)
         {
-            var textbox = helper.TextBoxFor(expression, new { @class = "form-control", id = id, placeholder = usePlaceholder ? title : string.Empty });
+            var ph = string.IsNullOrEmpty(placeholder) ? title : placeholder;
+            var textbox = helper.TextBoxFor(expression, new { @class = "form-control", id = id, placeholder = usePlaceholder ? ph : string.Empty });
             return textbox.ToString();
         }
 
@@ -96,7 +108,7 @@ namespace BootstrapHelpers
 
         private static string GetDateTimePicker<TModel, TProperty>(HtmlHelper<TModel> helper, Expression<Func<TModel, TProperty>> expression, string id)
         {
-            var textInput = GetTextInput(helper, expression, id, string.Empty, false);
+            var textInput = GetTextInput(helper, expression, id, string.Empty, string.Empty, false);
             var sb = new StringBuilder();
             sb.Append("<div class='input-group date'>");
             sb.Append(textInput);
